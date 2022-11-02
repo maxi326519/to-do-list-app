@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route } from 'react-router-dom';
+import { useState } from 'react';
 
-function App() {
+import ToDoList from './components/ToDoList'
+import AddToDo from './components/AddToDo'
+import './App.scss';
+
+export default function App() {
+
+  const [ darkMode, setDarkMode ] = useState({ isActive: true, class: 'dark'});
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App App-${ darkMode.class } `}>
+      <Route exact path='/' render={ ()=><ToDoList darkMode={ darkMode }/> }/>
+      <Route path='/add' render={ ()=><AddToDo darkMode={ darkMode }/> }/>
     </div>
   );
 }
-
-export default App;

@@ -1,0 +1,90 @@
+@use '../../styles/var';
+
+.ToDo{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    height: 100vh;
+
+    .todo-panel{
+        width: 500px;
+
+        .todo-header{
+            display: flex;
+            padding:20px;
+            border-radius: 20px;
+
+            h1{
+                flex-grow: 1;
+                margin: 0;
+            }
+
+            .btn-add{
+                padding: 10px 15px;
+                text-decoration: none;
+                border-radius: 10px;
+                transition: 0.2s;
+
+                img{
+                    width: 20px;
+                }
+            }
+        }
+
+        .todo-task{
+            display: flex;
+            flex-direction: column;
+            padding-top: 10px;
+        }
+    }
+}
+
+.ToDo-light{
+    .todo-panel{
+        .todo-header{
+            background-color: var.$color-light;
+
+            h1{
+                color: var.$panel-dark;
+            }
+
+            .btn-add{
+                background-color: inherit;
+
+                img{
+                    filter: invert(17%) sepia(9%) saturate(0%) hue-rotate(274deg) brightness(88%) contrast(86%);
+                }
+
+                &:hover{
+                    background-color: var.$panel-light;
+                }
+            }
+        }
+    }
+}
+
+.ToDo-dark{
+    .todo-panel{
+        .todo-header{
+            background-color: var.$color-dark;
+        }
+        
+        h1{
+            color: var.$panel-dark;
+        }
+
+        .btn-add{
+            img{
+                filter: invert(17%) sepia(9%) saturate(0%) hue-rotate(274deg) brightness(88%) contrast(86%);
+            }
+
+            &:hover{
+                background-color: var.$panel-dark;
+
+                img{
+                    filter: invert(44%) sepia(23%) saturate(5915%) hue-rotate(332deg) brightness(121%) contrast(106%);
+                }
+            }
+        }
+    }
+}

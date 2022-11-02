@@ -1,0 +1,15 @@
+@use './components/styles/animations.scss';
+@use "./components/styles/btn.scss";
+@use "./components/styles/var.scss";
+
+.App{
+  font-family: 'Montserrat', sans-serif;
+}
+
+.App-light{
+  background-color: var.$background-light;
+}
+
+.App-dark{
+  background-color: var.$background-dark;
+}

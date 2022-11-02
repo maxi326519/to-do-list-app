@@ -1,0 +1,138 @@
+@use "../../styles/var.scss";
+
+.AddToDo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .addtodo-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 5px #0001;
+
+    h2 {
+      margin: 0;
+      padding-bottom: 20px;
+    }
+
+    label {
+      text-align: left;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    input,
+    textarea {
+      margin: 5px 0;
+      padding: 5px 10px;
+      border-radius: 5px;
+      resize: none;
+
+      &:disabled{
+        filter: brightness(50%);
+      }
+    }
+
+    .form-btn-container {
+      display: flex;
+
+      button,
+      a {
+        margin: 5px;
+        width: 50%;
+      }
+    }
+
+    .form-input-flex{
+        display: flex;
+        
+        .form-input-date {
+            flex-grow: 1;
+            margin-right: 10px;
+          &:before {
+            content: "Day limite: ";
+            margin: 0 5px;
+          }
+        }
+    
+        .form-input-time {
+            flex-grow: 1;
+            margin-right: 10px;
+
+            &:before {
+            content: "Time limite: ";
+            margin: 0 5px;
+          }
+        }
+    }
+  }
+}
+
+.Add-light {
+  .addtodo-form {
+    border: 1px solid lightgrey;
+    box-shadow: 0 0 10px 5px #0002;
+    background-color: white;
+    background-color: var.$panel-light;
+
+    h2{
+      color: var.$color-light;
+    }
+
+    input,
+    textarea {
+      border: 1px solid lightgrey;
+
+      &:hover {
+        outline: 1px solid lightgrey;
+      }
+
+      &:focus {
+        border-color: var.$color-light;
+        outline: 1px solid var.$color-light;
+      }
+    }
+  }
+}
+
+.Add-dark {
+  .addtodo-form {
+    box-shadow: 0 0 10px 5px #0004;
+    border: 1px solid #666;
+    color: white;
+    background-color: var.$panel-dark;
+    
+    h2{
+      color: var.$color-dark;
+    }
+
+    input,
+    textarea {
+      background-color: inherit;
+      border: 1px solid darkgrey;
+      color: white;
+
+      &:hover {
+        outline: 1px solid darkgrey;
+      }
+
+      &:focus {
+        border-color: var.$color-dark;
+        outline: 1px solid var.$color-dark;
+      }
+    }
+
+    .form-input-date::-webkit-calendar-picker-indicator,
+    .form-input-time::-webkit-calendar-picker-indicator {
+      filter: invert(100%);
+    }
+  }
+}

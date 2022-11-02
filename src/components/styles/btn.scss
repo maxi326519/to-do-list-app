@@ -1,0 +1,42 @@
+@use './var.scss';
+
+.btn{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    text-decoration: none;
+    background-color: inherit;
+
+    transition: 0.2s;
+    
+    &:hover{
+        cursor: pointer;
+        color: white;
+    }
+
+    &:active{
+        transform: scale(0.9);
+        filter: brightness(90%)
+    }
+}
+
+.btn-light{
+    color: var.$color-light;
+    outline: 1px solid var.$color-light;
+    
+    &:hover{
+        color: white;
+        background-color: var.$color-light;
+    }
+}
+
+.btn-dark{
+    color: var.$color-dark;
+    outline: 1px solid var.$color-dark;
+    
+    &:hover{
+        color: white;
+        background-color: var.$color-dark;
+    }
+}

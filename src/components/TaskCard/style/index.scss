@@ -1,0 +1,63 @@
+@use '../../styles/var';
+
+.task-card{
+    display: flex;
+    border-radius: 10px;
+    margin: 10px;
+    overflow: hidden;
+
+    .task-data{
+        flex-grow: 1;
+        padding: 10px;
+
+        h2{
+            margin: 0;
+        }
+    }
+
+    .task-options{
+        position: relative;
+        padding: 10px;
+
+        button{
+            border-radius: 10px;
+            margin: 5px;
+            outline: 0px;
+
+            img{
+                width: 15px;
+                height: 15px;
+            }
+        }
+    }
+}
+
+.card-light{
+    background-color: var.$panel-light;
+    color: var.$panel-dark;
+
+    button{
+        img{
+            filter:invert(70%) sepia(67%) saturate(951%) hue-rotate(321deg) brightness(102%) contrast(101%);
+        }
+
+        &:hover img{
+            filter: invert(1);
+        }
+    }
+}
+
+.card-dark{
+    background-color: var.$panel-dark;
+    color: var.$panel-light;
+
+    button{
+        img{
+            filter: invert(44%) sepia(23%) saturate(5915%) hue-rotate(332deg) brightness(121%) contrast(106%);
+        }
+
+        &:hover img{
+            filter: invert(17%) sepia(9%) saturate(0%) hue-rotate(274deg) brightness(88%) contrast(86%);
+        }
+    }
+}
