@@ -13,25 +13,25 @@ import { ADD_TO_DO, EDIT_TO_DO, COMPLETE_TO_DO, REMOVE_TO_DO } from "../actions"
 const initialState = {
     toDo: [
         {
-            title: "Titulo",
-            description: "descripcion",
-            date: null,
-            time: null,
+            title: "Task 1",
+            description: "This is a example description",
+            date: '--/--/--',
+            time: '--:--',
             complete: false,
             id: 1
         },
         {
-            title: "Titulo",
-            description: "descripcion",
-            date: null,
-            time: null,
+            title: "Task 2",
+            description: "",
+            date: '--/--/--',
+            time: '--:--',
             complete: false,
             id: 2
         }
     ]
 }
 
-var id = 0;
+var id = 3;
 
 export default function rootReducer(state = initialState, action){
     switch(action.type){
@@ -76,7 +76,7 @@ export default function rootReducer(state = initialState, action){
 
         case REMOVE_TO_DO:
             return{
-                toDo: state.toDo.filter( toDo => toDo.is !== action.payload )
+                toDo: state.toDo.filter( toDo => toDo.id !== action.payload )
             }
         
         default:

@@ -1,63 +1,158 @@
-@use '../../styles/var';
+@use "../../styles/var";
 
-.task-card{
-    display: flex;
-    border-radius: 10px;
-    margin: 10px;
+.task-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  overflow: hidden;
+  margin: 10px;
+  border-radius: 10px;
+  transition: 0.2s;
+
+  h2 {
+    position: relative;
+    flex-grow: 1;
+    max-width: 300px;
+    margin: 0;
+    padding: 10px;
+    white-space: nowrap;
     overflow: hidden;
 
-    .task-data{
-        flex-grow: 1;
-        padding: 10px;
+    &:after {
+      content: "";
+      position: absolute;
+      left: 100%;
+      margin-left: -40px;
+      width: 40px;
+      height: 100%;
+      top: 0;
+      background: linear-gradient(to right, transparent, var.$panel-dark);
+    }
+  }
 
-        h2{
-            margin: 0;
-        }
+  .task-options {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    width: max-content;
+    padding: 10px;
+
+    button {
+      border-radius: 10px;
+      margin: 5px;
+      outline: 0px;
+
+      img {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  .task-details {
+    width: 100%;
+    padding: 10px;
+    padding-top: 0;
+
+    p {
+      padding-left: 10px;
+      margin: 0;
+      margin-bottom: 10px;
     }
 
-    .task-options{
-        position: relative;
-        padding: 10px;
+    .task-limite {
+      display: flex;
+      align-items: center;
 
-        button{
-            border-radius: 10px;
-            margin: 5px;
-            outline: 0px;
+      span {
+        margin-right: 20px;
+        font-size: 12px;
+        color: var.$color-dark;
+      }
 
-            img{
-                width: 15px;
-                height: 15px;
-            }
-        }
+      img {
+        width: 15px;
+        height: 15px;
+        margin: 10px;
+      }
     }
+  }
+
+  &:hover {
+    position: relative;
+    z-index: 150;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px 5px #0004;
+  }
 }
 
-.card-light{
-    background-color: var.$panel-light;
-    color: var.$panel-dark;
+.active {
+  .task-details {
+    display: block;
+  }
 
-    button{
-        img{
-            filter:invert(70%) sepia(67%) saturate(951%) hue-rotate(321deg) brightness(102%) contrast(101%);
-        }
-
-        &:hover img{
-            filter: invert(1);
-        }
+  .task-options {
+    .btn:first-child {
+      display: inline-block;
     }
+    .btn:nth-child(2) {
+      img {
+        transform: rotate(180deg);
+        transition: 0.2s;
+      }
+    }
+  }
 }
 
-.card-dark{
-    background-color: var.$panel-dark;
-    color: var.$panel-light;
+.disable {
+  .task-details {
+    display: none;
+  }
 
-    button{
-        img{
-            filter: invert(44%) sepia(23%) saturate(5915%) hue-rotate(332deg) brightness(121%) contrast(106%);
-        }
-
-        &:hover img{
-            filter: invert(17%) sepia(9%) saturate(0%) hue-rotate(274deg) brightness(88%) contrast(86%);
-        }
+  .task-options {
+    .btn:first-child {
+      display: none;
     }
+
+    .btn:nth-child(2) {
+      img {
+        transform: rotate(0deg);
+        transition: 0.2s;
+      }
+    }
+  }
+}
+
+.card-light {
+  background-color: var.$panel-light;
+  color: var.$panel-dark;
+
+  img {
+    filter: invert(70%) sepia(67%) saturate(951%) hue-rotate(321deg)
+      brightness(102%) contrast(101%);
+  }
+  button {
+
+    &:hover img {
+      filter: invert(1);
+    }
+  }
+}
+
+.card-dark {
+  background-color: var.$panel-dark;
+  color: var.$panel-light;
+
+  img {
+    filter: invert(44%) sepia(23%) saturate(5915%) hue-rotate(332deg)
+      brightness(121%) contrast(106%);
+  }
+  button {
+
+    &:hover img {
+      filter: invert(17%) sepia(9%) saturate(0%) hue-rotate(274deg)
+        brightness(88%) contrast(86%);
+    }
+  }
 }

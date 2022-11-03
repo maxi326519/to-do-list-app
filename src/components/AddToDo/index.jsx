@@ -11,17 +11,25 @@ export default function AddToDo({ darkMode }) {
   const [task, setTask] = useState({
     title: "titulo",
     description: "descripcion",
-    date: null,
-    time: null,
+    date: '--/--/--',
+    time: '--:--',
   });
 
   function handleCheck(e){
     switch(e.target.name){
         case 'check-time':
-            isCheked.time ? setChecked({ ...isCheked, time: false }) : setChecked({ ...isCheked, time: true })
+            if(isCheked.time){
+              setChecked({ ...isCheked, time: false })
+              setTask({ ...task, time: '--:--',})
+            }else
+              setChecked({ ...isCheked, time: true })
         break;
         case 'check-date':
-            isCheked.date ? setChecked({ ...isCheked, date: false }) : setChecked({ ...isCheked, date: true })
+            if(isCheked.date){
+              setChecked({ ...isCheked, date: false })
+              setTask({ ...task, time: '--:--',})
+            }else
+              setChecked({ ...isCheked, date: true })
         break;
         default:
             setChecked({ ...isCheked });
@@ -31,13 +39,9 @@ export default function AddToDo({ darkMode }) {
 
   function handleChange(e){
     setTask({ ...task, [e.target.name]: e.target.value});
-    console.log(e.target.name);
-    console.log(e.target.value);
-    console.log(task);
   }
 
   function handleSubmit(e) {
-    console.log('submit');
     e.preventDefault();
     dispatch(addToDo(task));
   }
