@@ -74,6 +74,17 @@
         }
     }
   }
+
+  @media screen and (max-width: 768px){
+    .addtodo-form {
+      width: 100%;
+      height: 90vh;
+
+      textarea{
+        flex-grow: 1;
+      }
+    }
+  }
 }
 
 .Add-light {
